@@ -1,4 +1,4 @@
-package Thread;
+package Thread.Interview;
 
 public class Main {
 

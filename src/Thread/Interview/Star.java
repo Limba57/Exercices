@@ -1,11 +1,11 @@
-package Thread;
+package Thread.Interview;
 
-public class Journaliste implements Runnable{
+public class Star implements Runnable{
 
     private Interview interview;
     private Thread t;
 
-    public Journaliste (Interview interview){
+    public Star (Interview interview){
         this.interview = interview;
         t = new Thread(this);
         t.start();
@@ -18,11 +18,10 @@ public class Journaliste implements Runnable{
             while (i != 0) {
                 i--;
 
-                interview.question();
+                interview.rep();
 
             }
 
 
     }
-
 }
