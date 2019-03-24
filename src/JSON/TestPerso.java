@@ -1,6 +1,6 @@
 package JSON;
 
-public class test {
+public class TestPerso {
 
     public static void main(String[] args) throws Exception {
 

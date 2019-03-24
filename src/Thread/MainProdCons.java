@@ -1,6 +1,6 @@
 package Thread;
 
-public class main {
+public class MainProdCons {
 
     public static void main(String[] args) {
 

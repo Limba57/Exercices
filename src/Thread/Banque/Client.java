@@ -18,6 +18,6 @@ public class Client {
     }
 
     public String toString(){
-        return "\nNom : "+this.nom+"\nPOO5_banque.Sexe : "+this.sexe+"\nAdresse : "+this.adresse+this.compte;
+        return "\nNom : "+this.nom+"\nSexe : "+this.sexe+"\nAdresse : "+this.adresse+this.compte;
     }
 }

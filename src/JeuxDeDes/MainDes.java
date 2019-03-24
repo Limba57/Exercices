@@ -1,6 +1,6 @@
 package JeuxDeDes;
 
-public class Main {
+public class MainDes {
 
     public static void main(String[] args) {
 

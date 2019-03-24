@@ -1,6 +1,6 @@
 package ListeChainee;
 
-public class test {
+public class TestListChainee {
 
     public static void main(String[] args) {
 

@@ -1,5 +1,7 @@
 package Thread.Banque;
 
+import java.util.Scanner;
+
 public class CompteBanquaire {
 
     private int numeroDeCompte;
@@ -21,7 +23,7 @@ public class CompteBanquaire {
         this.solde = solde;
     }
 
-    // retourne un nombre aleatoire --> simule le numero de commande
+    // retourne un nombre aleatoire
     public static int aleatoire (int mini ,int maxi){
 
         int nombreAleatoire = mini + (int)(Math.random() * ((maxi - mini) + 1));
@@ -49,7 +51,7 @@ public class CompteBanquaire {
 
     }
 
-    // POO5_banque.Depot
+    // Depot
     public void depot (int montant){
 
         solde += montant;
@@ -63,6 +65,34 @@ public class CompteBanquaire {
 
     }
 
+    // pose la question donné en parametre et attent une reponse 'o' ou 'n' --> retoure un booleen true = oui, false = non
+    public boolean question (String question){
+
+        Scanner sc = new Scanner(System.in);
+        char reponse;
+
+        do{
+            System.out.println(question+" (o/n) :");
+            try {
+
+                reponse = sc.nextLine().charAt(0);
+
+            }catch (Exception e){
+
+                reponse = 'u';
+
+            }
+
+        }while (reponse != 'o' && reponse != 'n');
+
+        if (reponse == 'o')
+            return true;
+        else
+            return false;
+
+
+    }
+
     // Getter
     public int getSolde() {
         return solde;
@@ -70,5 +100,9 @@ public class CompteBanquaire {
 
     public int getNumeroDeCompte() {
         return numeroDeCompte;
+    }
+
+    public int getPlafond() {
+        return plafond;
     }
 }

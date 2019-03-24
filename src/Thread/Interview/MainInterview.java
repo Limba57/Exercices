@@ -1,6 +1,6 @@
 package Thread.Interview;
 
-public class Main {
+public class MainInterview {
 
     public static void main(String[] args) {
 
