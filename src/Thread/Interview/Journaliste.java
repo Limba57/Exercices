@@ -13,7 +13,7 @@ public class Journaliste implements Runnable{
 
     public void run(){
 
-        int i = 3;
+        int i = 5;
 
             while (i != 0) {
                 i--;

@@ -1,5 +1,5 @@
 package OCR.Net;
-
+/*
 import java.awt.Dimension;
 
 import javafx.application.Platform;
@@ -44,7 +44,7 @@ public class Browser extends JFrame{
     /**
      * Méthode permettant de mettre à jour le JFXPanel
      * @param content
-     */
+     *//*
     public void setContent(String content){
         //pour la mise à jour de ce composant,
         //vu qu'il cohabite avec Swing
@@ -57,7 +57,7 @@ public class Browser extends JFrame{
      * une classe interne qui permet de travailler conjointement
      * avec JavaFX et Swing
      * @author CHerby
-     */
+     *//*
     private class FXRunnable implements Runnable{
         String content;
         public FXRunnable(String pContent){
@@ -71,7 +71,7 @@ public class Browser extends JFrame{
         /**
          * initialise les composants JavaFX
          * @param fxPanel
-         */
+         *//*
         private void initFX(JFXPanel fxPanel){
             group = new Group();
             scene = new Scene(group);
@@ -91,4 +91,4 @@ public class Browser extends JFrame{
             webEngine.reload();
         }
     }
-}
+}*/
