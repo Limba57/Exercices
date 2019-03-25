@@ -1,15 +1,14 @@
 package JeuxDeDes;
 
-import java.sql.SQLOutput;
-import java.util.ArrayList;
+
 import java.util.HashMap;
 import java.util.Scanner;
 
 public class Partie {
 
     Dice dice;
-    HashMap<String,Integer> resultas;
-    boolean drapeau;
+    HashMap<Integer,String> resultas;
+    String gagnant;
 
     public Partie(){
 
@@ -23,24 +22,23 @@ public class Partie {
 
     }
 
-    public static int aleatoire (int mini ,int maxi){
-
-        int nombreAleatoire = mini + (int)(Math.random() * ((maxi - mini) + 1));
-        return nombreAleatoire;
-    }
 
     public synchronized int jouer (Joueur joueur) {
 
-        int lancer;
-        String gagnant = joueur.getNom();
+       int lancer;
 
         lancer = this.dice.lancer(joueur);
-        resultas.put(joueur.getNom(),lancer);
+        resultas.put(lancer,joueur.getNom());
 
-        for (String s : resultas.keySet()) {
-            if(resultas.get(s) > lancer)
-                gagnant = s;
+        for (Integer s : resultas.keySet()) {
+
+            if(s >= lancer) {
+                gagnant = resultas.get(s);
+                lancer = s;
+            }
+
         }
+        System.out.println(resultas);
         System.out.println("le plus grand score est à : "+gagnant+"\n");
         notifyAll();
         return lancer;
