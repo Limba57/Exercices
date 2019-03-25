@@ -1,4 +1,4 @@
-package JeuxDeDes;
+package Thread.JeuxDeDes;
 
 public class Joueur implements Runnable{
 

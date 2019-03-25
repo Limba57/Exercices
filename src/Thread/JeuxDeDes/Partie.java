@@ -1,4 +1,4 @@
-package JeuxDeDes;
+package Thread.JeuxDeDes;
 
 
 import java.util.HashMap;
