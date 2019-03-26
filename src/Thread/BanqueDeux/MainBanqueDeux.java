@@ -9,5 +9,6 @@ public class MainBanqueDeux {
         Client seb = new Client("seb", "Mecleuves", "Homme", compte);
 
         Banque banque = new Banque(seb);
+
     }
 }

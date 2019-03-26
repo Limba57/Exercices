@@ -50,7 +50,6 @@ public class Personne {
         }
     }
 
-
     public static Personne deserializedPersonne(String fichier) {
 
         try {

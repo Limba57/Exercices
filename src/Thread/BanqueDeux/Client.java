@@ -8,17 +8,16 @@ public class Client {
     private Compte compte;
 
     public Client(String nom, String adresse, String sexe, Compte compte) {
+
         this.nom = nom;
         this.adresse = adresse;
         this.sexe = sexe;
         this.compte = compte;
+
     }
 
     public Compte getCompte() {
         return compte;
     }
 
-    public void setCompte(Compte compte) {
-        this.compte = compte;
-    }
 }
