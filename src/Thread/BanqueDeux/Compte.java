@@ -12,13 +12,6 @@ public class Compte {
         this.plafond = plafond;
     }
 
-    // retourne un nombre aleatoire
-    public static int aleatoire (int mini ,int maxi){
-
-        int nombreAleatoire = mini + (int)(Math.random() * ((maxi - mini) + 1));
-        return nombreAleatoire;
-    }
-
     public synchronized boolean Cretrait(int montant) {
 
         if ((solde - montant) < 0) {
@@ -59,31 +52,18 @@ public class Compte {
         return solde;
     }
 
-    public void setSolde(int solde) {
-        this.solde = solde;
+    // retourne un nombre aleatoire
+    public static int aleatoire (int mini ,int maxi){
+
+        int nombreAleatoire = mini + (int)(Math.random() * ((maxi - mini) + 1));
+        return nombreAleatoire;
     }
 
-
-    // getter setter
-    public int getNumeroDeCompte() {
-        return numeroDeCompte;
-    }
-
-    public void setNumeroDeCompte(int numeroDeCompte) {
-        this.numeroDeCompte = numeroDeCompte;
-    }
+    // getter
 
     public int getSolde() {
         return solde;
     }
 
 
-
-    public int getPlafond() {
-        return plafond;
-    }
-
-    public void setPlafond(int plafond) {
-        this.plafond = plafond;
-    }
 }

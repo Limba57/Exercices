@@ -15,8 +15,8 @@ public class ThreadDepot implements Runnable{
 
     public synchronized void operation() {
 
-
         this.banque.guichet();
+
     }
 
     @Override

@@ -4,16 +4,14 @@ import java.util.Scanner;
 
 public class Banque{
 
-
     Client client;
-    int attente = 0;
 
     public Banque(Client client) {
         this.client = client;
         this.guichet();
     }
 
-    public synchronized void guichet() {
+    public void guichet() {
 
         int reponse;
         Scanner sc = new Scanner(System.in);
@@ -43,22 +41,6 @@ public class Banque{
             case 4:
                 break;
         }
-    }
-
-
-
-    public synchronized void retrait(){
-
-        ThreadRetrait t = new ThreadRetrait(this, DemandeMontant());
-
-        }
-
-
-
-    public synchronized void depot() {
-
-        this.client.getCompte().Cdepot(DemandeMontant());
-
     }
 
     public int DemandeMontant(){
