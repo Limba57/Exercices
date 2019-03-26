@@ -13,16 +13,10 @@ public class ThreadDepot implements Runnable{
         td.start();
     }
 
-    public synchronized void operation() {
-
-        this.banque.guichet();
-
-    }
-
     @Override
     public void run() {
 
-        operation();
+        banque.client.getCompte().Cdepot(montant);
 
     }
 }
