@@ -16,15 +16,7 @@ public class ThreadRetrait implements Runnable{
 
     public synchronized void operation() {
 
-        //
         this.banque.client.getCompte().Cretrait(montant);
-        //boolean flag =
-        //while(!flag) {
-
-         //   operation();
-
-       // }
-
 
     }
 

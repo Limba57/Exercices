@@ -31,9 +31,11 @@ public class Banque{
         switch (reponse) {
             case 1:
                 retrait();
+                guichet();
                 break;
             case 2:
                 depot();
+                guichet();
                 break;
             case 3:
                 System.out.println("solde : "+this.client.getCompte().getSolde());
@@ -48,7 +50,7 @@ public class Banque{
     public synchronized void retrait(){
 
         ThreadRetrait t = new ThreadRetrait(this, DemandeMontant());
-        guichet();
+
         }
 
 
@@ -56,7 +58,6 @@ public class Banque{
     public synchronized void depot() {
 
         this.client.getCompte().Cdepot(DemandeMontant());
-        guichet();
 
     }
 
