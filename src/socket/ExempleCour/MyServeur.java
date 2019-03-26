@@ -30,6 +30,9 @@ public class MyServeur {
         String msg = in.readLine();
         System.out.println("SERVER - message recu : " + msg);
 
+        System.out.println("SERVEU - message envoyé");
+        out.println("coucou je suis le serveur");
+
         //fermer les ressources
         try {
             in.close();
