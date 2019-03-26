@@ -28,11 +28,11 @@ public class Banque{
 
         switch (reponse) {
             case 1:
-                retrait();
+                ThreadRetrait t = new ThreadRetrait(this,DemandeMontant());
                 guichet();
                 break;
             case 2:
-                depot();
+                client.getCompte().Cdepot(DemandeMontant());
                 guichet();
                 break;
             case 3:

@@ -8,22 +8,18 @@ public class ThreadRetrait implements Runnable{
 
 
     public ThreadRetrait(Banque banque, int montant) {
+
         this.banque = banque;
         this.montant = montant;
         tr = new Thread(this);
         tr.start();
-    }
-
-    public void operation() {
-
-        this.banque.client.getCompte().Cretrait(montant);
 
     }
 
     @Override
     public void run() {
 
-        operation();
+        this.banque.client.getCompte().Cretrait(montant);
 
     }
 
