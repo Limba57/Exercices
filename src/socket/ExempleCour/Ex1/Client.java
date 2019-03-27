@@ -12,17 +12,19 @@ public class Client {
     private Socket socketClient;
     private BufferedReader in;
     private PrintWriter out;
+    private String nom;
     Scanner sc;
 
-    public Client(int port) throws IOException {
+    public Client(int port, String nom) throws IOException {
 
         socketClient = new Socket("127.0.001", port);
+        this.nom = nom;
 
         out = new PrintWriter(socketClient.getOutputStream(), true);
         in = new BufferedReader(new InputStreamReader(socketClient.getInputStream()));
-        System.out.println("--- Client connecté ---");
+        System.out.println("--- "+this.nom+" connecté ---");
 
-        //reception();
+
 
         sc = new Scanner(System.in);
 

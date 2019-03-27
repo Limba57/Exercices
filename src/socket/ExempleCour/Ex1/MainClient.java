@@ -7,27 +7,29 @@ public class MainClient {
 
     public static void main(String[] args) throws IOException {
 
-
-        Client client = new Client(5000);
         Scanner sc = new Scanner(System.in);
+        System.out.println("Entrez votre nom :");
+        String nom = sc.nextLine();
+        Client client = new Client(5000,nom);
+
         String message;
         boolean stop = false;
 
         do{
 
-            System.out.println("--CLIENT-- Entrez votre message :");
+            System.out.println("-- "+nom+" -- Entrez votre message :");
             message = sc.nextLine();
 
             if (message.equals("stop")) {
                 client.emission(message);
                 stop = true;
             } else {
-                client.emission(message);
+                client.emission("-- "+nom+" -- "+message);
             }
 
         }while (!stop);
 
-        System.out.println("Deconnexion du CLIENT");
+        System.out.println("Deconnexion de "+nom);
         client.deconnexion();
 
 
