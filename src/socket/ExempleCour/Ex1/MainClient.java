@@ -11,18 +11,29 @@ public class MainClient {
         Client client = new Client();
         Scanner sc = new Scanner(System.in);
         String message;
+        boolean stop = false;
 
         do{
 
             System.out.println("Entrez votre message :");
             message = sc.nextLine();
-            client.emission(message);
-            client.reception();
+
+            if (message.equals("stop")) {
+                System.out.println("deconnexion");
+                client.deconnexion();
+                stop = true;
+            } else {
+                client.emission(message);
+                client.reception();
+            }
+
+        }while (stop == false);
 
 
-        }while (message != "stop");
 
-            client.deconnexion();
+
+
+
 
 
 

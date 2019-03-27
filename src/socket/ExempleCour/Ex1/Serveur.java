@@ -22,9 +22,11 @@ public class Serveur {
         serverSocket = new ServerSocket(5000);
 
         socketClient = serverSocket.accept();
-
+        System.out.println("connexion au client ok");
         out = new PrintWriter(socketClient.getOutputStream(), true);
         in = new BufferedReader(new InputStreamReader(socketClient.getInputStream()));
+
+        //reception();
 
         sc = new Scanner(System.in);
     }

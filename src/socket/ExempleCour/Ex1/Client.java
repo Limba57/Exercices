@@ -22,6 +22,8 @@ public class Client {
         in = new BufferedReader(new InputStreamReader(socketClient.getInputStream()));
         System.out.println("--- Client connecté ---");
 
+        //reception();
+
         sc = new Scanner(System.in);
 
     }
