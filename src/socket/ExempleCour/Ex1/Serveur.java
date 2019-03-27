@@ -16,17 +16,15 @@ public class Serveur {
     private PrintWriter out;
     Scanner sc;
 
-    public Serveur() throws IOException {
+    public Serveur(int port) throws IOException {
 
         System.out.println("--- Lancement du serveur ---");
-        serverSocket = new ServerSocket(5000);
+        serverSocket = new ServerSocket(port);
 
         socketClient = serverSocket.accept();
         System.out.println("connexion au client ok");
         out = new PrintWriter(socketClient.getOutputStream(), true);
         in = new BufferedReader(new InputStreamReader(socketClient.getInputStream()));
-
-        //reception();
 
         sc = new Scanner(System.in);
     }
@@ -42,12 +40,7 @@ public class Serveur {
 
     public void emission(String message) {
 
-        //String message;
-
-        //System.out.println("Entrez votre message : ");
-        //message = sc.nextLine();
         out.println(message);
-
 
     }
 

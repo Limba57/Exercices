@@ -14,9 +14,9 @@ public class Client {
     private PrintWriter out;
     Scanner sc;
 
-    public Client() throws IOException {
+    public Client(int port) throws IOException {
 
-        socketClient = new Socket("127.0.001", 5000);
+        socketClient = new Socket("127.0.001", port);
 
         out = new PrintWriter(socketClient.getOutputStream(), true);
         in = new BufferedReader(new InputStreamReader(socketClient.getInputStream()));

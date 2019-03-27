@@ -7,7 +7,7 @@ public class MainServeur {
 
     public static void main(String[] args) throws IOException {
 
-        Serveur serveur = new Serveur();
+        Serveur serveur = new Serveur(5000);
         Scanner sc = new Scanner(System.in);
         String message;
         boolean stop = false;
@@ -15,11 +15,11 @@ public class MainServeur {
 
         do {
 
-            System.out.println("Entrez votre message :");
+            System.out.println("--SERVER -- Entrez votre message :");
             message = sc.nextLine();
 
             if (message.equals("stop")) {
-                System.out.println("deconnexion");
+                System.out.println("deconnexion du SERVER");
                 serveur.deconnexion();
                 stop = true;
             } else {
@@ -27,9 +27,7 @@ public class MainServeur {
                 serveur.reception();
             }
 
-
-
-        } while (stop == false);
+        } while (!stop);
 
 
 

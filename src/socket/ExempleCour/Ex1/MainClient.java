@@ -8,18 +8,18 @@ public class MainClient {
     public static void main(String[] args) throws IOException {
 
 
-        Client client = new Client();
+        Client client = new Client(5000);
         Scanner sc = new Scanner(System.in);
         String message;
         boolean stop = false;
 
         do{
 
-            System.out.println("Entrez votre message :");
+            System.out.println("--CLIENT-- Entrez votre message :");
             message = sc.nextLine();
 
             if (message.equals("stop")) {
-                System.out.println("deconnexion");
+                System.out.println("deconnexion du CLIENT");
                 client.deconnexion();
                 stop = true;
             } else {
@@ -27,7 +27,7 @@ public class MainClient {
                 client.reception();
             }
 
-        }while (stop == false);
+        }while (!stop);
 
 
 
