@@ -13,8 +13,7 @@ public class Serveur {
     private ServerSocket serverSocket;
     private Socket socketClient;
     private BufferedReader in;
-    private PrintWriter out;
-    Scanner sc;
+    private boolean infini = true;
 
     public Serveur(int port) throws IOException {
 
@@ -22,20 +21,16 @@ public class Serveur {
         serverSocket = new ServerSocket(port);
 
         // en attente d'un client
-        socketClient = serverSocket.accept();
-        System.out.println("connexion au client ok");
-        out = new PrintWriter(socketClient.getOutputStream(), true);
-        in = new BufferedReader(new InputStreamReader(socketClient.getInputStream()));
+        do {
+            socketClient = serverSocket.accept();
+            System.out.println("connexion au client ok");
+            Thread t = new Thread(new ThreadClient(socketClient));
+            t.start();
+        } while (infini);
 
-        sc = new Scanner(System.in);
-    }
-
-    private void connexion() {
-
-
+        in = new BufferedReader(new InputStreamReader(this.socketClient.getInputStream()));
 
     }
-
 
     public boolean reception() throws IOException{
 
@@ -62,6 +57,8 @@ public class Serveur {
         }
 
     }
+
+
 
 
 }

@@ -1,22 +1,23 @@
 package socket.ExempleCour.Ex2;
 
+
 import java.net.Socket;
 
 public class ThreadClient implements Runnable{
 
-    private Serveur serveur;
-    private Thread t;
+    private Socket clientSocket;
 
-    public ThreadClient(Serveur serveur) {
+    public ThreadClient(Socket clientSocket) {
 
-        this.serveur = serveur;
-        t.start();
+        this.clientSocket = clientSocket;
+
     }
 
     @Override
-    public void run() {
-
+    public void run(){
 
 
     }
+
+
 }
