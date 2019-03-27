@@ -21,6 +21,7 @@ public class Serveur {
         System.out.println("--- Lancement du serveur ---");
         serverSocket = new ServerSocket(port);
 
+        // en attente d'un client
         socketClient = serverSocket.accept();
         System.out.println("connexion au client ok");
         out = new PrintWriter(socketClient.getOutputStream(), true);
@@ -29,8 +30,14 @@ public class Serveur {
         sc = new Scanner(System.in);
     }
 
+    private void connexion() {
 
-    public synchronized boolean reception() throws IOException{
+
+
+    }
+
+
+    public boolean reception() throws IOException{
 
         String message = in.readLine();
 
@@ -55,4 +62,6 @@ public class Serveur {
         }
 
     }
+
+
 }
