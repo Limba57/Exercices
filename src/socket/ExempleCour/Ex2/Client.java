@@ -1,4 +1,4 @@
-package socket.ExempleCour.Ex1;
+package socket.ExempleCour.Ex2;
 
 import java.io.BufferedReader;
 import java.io.IOException;
