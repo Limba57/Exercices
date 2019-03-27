@@ -30,11 +30,19 @@ public class Serveur {
     }
 
 
-    public void reception() throws IOException{
+    public boolean reception() throws IOException{
+
+
 
         String message = in.readLine();
+        if (message.equals("stop")) {
 
-        System.out.println("Message recue : " + message);
+            return false;
+
+        }else{
+            System.out.println("Message recue : " + message);
+            return true;
+        }
 
     }
 

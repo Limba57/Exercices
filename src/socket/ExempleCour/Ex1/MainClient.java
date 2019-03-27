@@ -19,16 +19,16 @@ public class MainClient {
             message = sc.nextLine();
 
             if (message.equals("stop")) {
-                System.out.println("deconnexion du CLIENT");
-                client.deconnexion();
+                client.emission(message);
                 stop = true;
             } else {
                 client.emission(message);
-                client.reception();
             }
 
         }while (!stop);
 
+        System.out.println("Deconnexion du CLIENT");
+        client.deconnexion();
 
 
 

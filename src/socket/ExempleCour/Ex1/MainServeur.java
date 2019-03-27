@@ -10,26 +10,17 @@ public class MainServeur {
         Serveur serveur = new Serveur(5000);
         Scanner sc = new Scanner(System.in);
         String message;
-        boolean stop = false;
+        boolean stop;
 
 
         do {
 
-            System.out.println("--SERVER -- Entrez votre message :");
-            message = sc.nextLine();
+                stop = serveur.reception();
 
-            if (message.equals("stop")) {
-                System.out.println("deconnexion du SERVER");
-                serveur.deconnexion();
-                stop = true;
-            } else {
-                serveur.emission(message);
-                serveur.reception();
-            }
+        } while (stop);
 
-        } while (!stop);
-
-
+        System.out.println("deconnexion du SERVER");
+        serveur.deconnexion();
 
 
 
