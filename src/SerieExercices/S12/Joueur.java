@@ -33,10 +33,11 @@ public class Joueur {
     public void attente() throws IOException{
 
         String ok;
-
+        System.out.println("en attente");
         do {
             ok = in.readLine();
-        } while (ok.isEmpty());
+            //System.out.println(ok);
+        } while (!ok.equals("ok"));
 
         System.out.println("Au revoir");
     }

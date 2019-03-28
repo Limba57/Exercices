@@ -16,23 +16,15 @@ public class ConnexionJoueur implements Runnable{
         this.socket = socket;
         this.classement = classement;
         out = new PrintWriter(socket.getOutputStream(), true);
+
     }
 
     @Override
-    public void run() {
-        out.println("En attente des joueurs");
-        try {
-            wait();
-        } catch (InterruptedException e) {
-            System.out.println("Merde ds tes wait");
-        }
+    public synchronized void run() {
+
+        out.println("ok");
 
 
-        out.println("tout le monde est là on peut commencer");
-        /*do {
-            in =
-        } while ();
 
-         */
     }
 }

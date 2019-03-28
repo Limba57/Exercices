@@ -3,6 +3,7 @@ package SerieExercices.S12;
 import java.io.IOException;
 import java.net.ServerSocket;
 import java.net.Socket;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class ServeurDePartie {
@@ -37,16 +38,39 @@ public class ServeurDePartie {
 
         int compteur = nbrDeJoueur;
 
-        while (compteur != 0) {
+        ArrayList<Thread> fileAttente = new ArrayList<>();
 
-            joueurSocket = serverSocket.accept();
-            System.out.println("Un nouveau joueur connecté");
-            compteur--;
-            System.out.println("Plus que " + compteur + " joueur en attente");
-            Thread t = new Thread(new ConnexionJoueur(joueurSocket, this.classement));
+         do{
+
+                joueurSocket = serverSocket.accept();
+                System.out.println("Un nouveau joueur connecté");
+                compteur--;
+                System.out.println("Plus que " + compteur + " joueur en attente");
+                Thread t = new Thread(new ConnexionJoueur(joueurSocket, this.classement));
+                fileAttente.add(t);
+
+        }while (compteur != 0);
+        for (Thread t : fileAttente) {
+            t.start();
         }
-        notifyAll();
+
         System.out.println("Tout le monde est là, on peut commencer");
+        deconnexion();
+    }
+
+    private void deconnexion() {
+
+        char reponse;
+        Scanner scUn = new Scanner(System.in);
+
+        do{
+            System.out.println("Voulez vous couper le serveur o/n");
+            reponse = scUn.nextLine().charAt(0);
+        }while ( reponse != 'o');
+
+        System.out.println("Salut");
+
+
     }
 
 }
