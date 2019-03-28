@@ -24,10 +24,14 @@ public class Joueur {
         sc = new Scanner(System.in);
         System.out.println("Quel est votre nom ?");
         nom = sc.nextLine();
+
         socket = new Socket("127.0.001", port);
         System.out.println("-- "+nom+" CONNEXION OK --");
+        out = new PrintWriter(socket.getOutputStream());
         in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
+
         attente();
+
     }
 
     public void attente() throws IOException{
@@ -36,7 +40,7 @@ public class Joueur {
         System.out.println("en attente");
         do {
             ok = in.readLine();
-            //System.out.println(ok);
+
         } while (!ok.equals("ok"));
 
         System.out.println("Au revoir");
