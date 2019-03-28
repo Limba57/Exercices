@@ -1,8 +1,11 @@
 package SerieExercices.S12;
 
+import javax.imageio.IIOException;
+import java.io.IOException;
+
 public class MainServeur {
 
-    public static void main(String[] args) {
-        Serveur serveur = new Serveur(5000);
+    public static void main(String[] args) throws IOException {
+        ServeurDePartie serveur = new ServeurDePartie(5000);
     }
 }

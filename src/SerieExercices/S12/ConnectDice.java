@@ -2,8 +2,6 @@ package SerieExercices.S12;
 
 
 
-import SerieExercices.S12.ConnexionDeJoueur;
-
 import java.util.Scanner;
 
 public class ConnectDice {
@@ -19,7 +17,7 @@ public class ConnectDice {
     public ConnectDice() {
         nbrDeFaces = 6;
     }
-
+/*
     public int lancer (ConnexionDeJoueur joueur){
 
         Scanner sc = new Scanner(System.in);
@@ -32,4 +30,6 @@ public class ConnectDice {
         return nombreAleatoire;
 
     }
+
+ */
 }
