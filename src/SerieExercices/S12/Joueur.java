@@ -27,6 +27,7 @@ public class Joueur {
 
         socket = new Socket("127.0.001", port);
         System.out.println("-- "+nom+" CONNEXION OK --");
+
         out = new PrintWriter(socket.getOutputStream());
         in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
 
@@ -39,11 +40,12 @@ public class Joueur {
         String ok;
         System.out.println("en attente");
         do {
+
             ok = in.readLine();
 
         } while (!ok.equals("ok"));
 
-        System.out.println("Au revoir");
+
     }
 
 

@@ -11,19 +11,29 @@ public class ConnexionJoueur implements Runnable{
     private Socket socket;
     private BufferedReader in;
     private PrintWriter out;
-    public Classement classement;
+    private ServeurDePartie serveur;
+
+
+    int lancer;
     String nom;
 
-    public ConnexionJoueur(Socket socket, Classement classement) throws IOException {
-        this.socket = socket;
-        this.classement = classement;
-        out = new PrintWriter(socket.getOutputStream(), true);
+    public ConnexionJoueur(ServeurDePartie serveur) throws IOException {
+
+        this.socket = serveur.getJoueurSocket();
+        this.serveur = serveur;
+
         in = new BufferedReader(new InputStreamReader(this.socket.getInputStream()));
+        do {
+            nom = in.readLine();
+        } while (nom.isEmpty());
+        out = new PrintWriter(socket.getOutputStream(), true);
 
     }
 
     @Override
     public void run() {
+
+        lancer = serveur.getDes().lancer();
 
         out.println("ok");
 
