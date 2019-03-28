@@ -32,8 +32,6 @@ public class Client {
 
     public void emission(String message) {
 
-        //System.out.println("Entrez votre message : ");
-        //message = sc.nextLine();
         out.println(message);
 
     }

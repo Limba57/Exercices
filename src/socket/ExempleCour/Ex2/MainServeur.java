@@ -9,18 +9,15 @@ public class MainServeur {
 
         Serveur serveur = new Serveur(5000);
 
-        boolean stop;
-
-        do {
-
-                stop = serveur.reception();
-
-        } while (stop);
-
-        System.out.println("deconnexion du SERVER");
-        serveur.deconnexion();
-
-
-
+//        boolean stop;
+//
+//        do {
+//
+//                stop = serveur.reception();
+//
+//        } while (stop);
+//
+//        System.out.println("deconnexion du SERVER");
+//        serveur.deconnexion();
     }
 }
