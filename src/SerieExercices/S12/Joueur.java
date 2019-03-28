@@ -19,33 +19,51 @@ public class Joueur {
     private PrintWriter out;
     //private
 
-    public Joueur( int port) throws IOException {
+    public Joueur( int port){
 
         sc = new Scanner(System.in);
         System.out.println("Quel est votre nom ?");
         nom = sc.nextLine();
-
+        try {
         socket = new Socket("127.0.001", port);
         System.out.println("-- "+nom+" CONNEXION OK --");
 
-        out = new PrintWriter(socket.getOutputStream());
-        in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
-
+            out = new PrintWriter(socket.getOutputStream());
+            in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
+            //out.println(nom);
+        } catch (IOException e) {
+            System.out.println("erreur de connexion coté joueur : "+nom);
+        }
         attente();
 
     }
 
-    public void attente() throws IOException{
+    public void attente() {
 
         String ok;
         System.out.println("en attente");
-        do {
 
-            ok = in.readLine();
+        try {
+            do {
 
-        } while (!ok.equals("ok"));
+                ok = in.readLine();
+                System.out.println(ok);
 
+            } while (!ok.equals("ok"));
+        } catch (IOException e) {
+            System.out.println("erreure pdt l'attente");
+        }
 
+        pretAJouer();
+
+    }
+
+    public void pretAJouer() {
+
+        System.out.println("Pret a jouer ? pressez une touche !");
+        String go = sc.nextLine();
+        out.println(nom);
+        pretAJouer();
     }
 
 

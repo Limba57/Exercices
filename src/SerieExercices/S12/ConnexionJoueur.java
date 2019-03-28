@@ -17,25 +17,36 @@ public class ConnexionJoueur implements Runnable{
     int lancer;
     String nom;
 
-    public ConnexionJoueur(ServeurDePartie serveur) throws IOException {
+    public ConnexionJoueur(ServeurDePartie serveur) {
 
         this.socket = serveur.getJoueurSocket();
         this.serveur = serveur;
+        try {
+            out = new PrintWriter(socket.getOutputStream(), true);
+            in = new BufferedReader(new InputStreamReader(this.socket.getInputStream()));
+            out.println("connexion ok");
 
-        in = new BufferedReader(new InputStreamReader(this.socket.getInputStream()));
-        do {
-            nom = in.readLine();
-        } while (nom.isEmpty());
-        out = new PrintWriter(socket.getOutputStream(), true);
-
+        } catch (IOException e) {
+            System.out.println("variable nom pas recue");
+        }
     }
 
     @Override
     public void run() {
-
-        lancer = serveur.getDes().lancer();
-
+        System.out.println("test");
+        //lancer = serveur.getDes().lancer();
+        out.println("c'est partie");
         out.println("ok");
+
+        try {
+            do {
+                nom = in.readLine();
+                System.out.println(nom);
+            } while (nom.isEmpty() == false);
+        } catch (IOException e) {
+            System.out.println("prbl à la reception du nom");
+        }
+        System.out.println(nom);
 
     }
 }

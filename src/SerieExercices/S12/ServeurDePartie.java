@@ -15,9 +15,10 @@ public class ServeurDePartie {
     private int nbrDeFaces;
     private Classement classement;
     private ConnectDice des;
+    boolean stop = false;
 
 
-    public ServeurDePartie (int port) throws IOException {
+    public ServeurDePartie (int port) {
 
         sc = new Scanner(System.in);
 
@@ -28,28 +29,36 @@ public class ServeurDePartie {
         System.out.println("Avec un dés à combien de faces voulez-vous jouer ?");
         nbrDeFaces = sc.nextInt();
         des = new ConnectDice(nbrDeFaces);
-
-        serverSocket = new ServerSocket(port);
+        try {
+            serverSocket = new ServerSocket(port);
+        } catch (IOException e) {
+            System.out.println("Erreur de creation du socketServer");
+        }
         System.out.println("-- SERVEUR OK --");
         System.out.println("-- En attente de "+nbrDeJoueur+" joueurs");
 
         attenteDeConnexion();
     }
 
-    private synchronized void attenteDeConnexion() throws IOException{
+    private synchronized void attenteDeConnexion() {
 
         int compteur = nbrDeJoueur;
 
         ArrayList<Thread> fileAttente = new ArrayList<>();
 
          do{
-
+             try {
                 joueurSocket = serverSocket.accept();
                 System.out.println("Un nouveau joueur connecté");
                 compteur--;
                 System.out.println("Plus que " + compteur + " joueur en attente");
-                Thread t = new Thread(new ConnexionJoueur(this));
-                fileAttente.add(t);
+
+                 Thread t = new Thread(new ConnexionJoueur(this));
+                 fileAttente.add(t);
+             } catch (IOException e) {
+                 System.out.println("connexion au joueur impossible");
+             }
+
 
         }while (compteur != 0);
         for (Thread t : fileAttente) {
@@ -57,7 +66,11 @@ public class ServeurDePartie {
         }
 
         System.out.println("Tout le monde est là, on peut commencer");
-        deconnexion();
+
+
+        do {
+        } while (!stop);
+        //deconnexion();
     }
 
     private void deconnexion() {
