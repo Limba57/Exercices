@@ -17,7 +17,6 @@ public class Classement {
 
         resultat.put(lancer, nom);
 
-
         for (Integer s : resultat.keySet()) {
 
             if (s >= lancer) {
@@ -25,9 +24,6 @@ public class Classement {
                 lancer = s;
             }
         }
-
-        notify();
-
     }
 
     public String getGagnant() {

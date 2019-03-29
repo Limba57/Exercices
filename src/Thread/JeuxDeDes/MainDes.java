@@ -13,9 +13,5 @@ public class MainDes {
         Joueur cinq = new Joueur("Luc", partie);
         Joueur six = new Joueur("Max", partie);
 
-
-
-        // si on sont tous morts
-        //
     }
 }

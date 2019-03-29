@@ -40,33 +40,38 @@ public class ServeurDePartie {
         attenteDeConnexion();
     }
 
-    private synchronized void attenteDeConnexion() {
+    private void attenteDeConnexion() {
 
         int compteur = nbrDeJoueur;
 
         ArrayList<Thread> fileAttente = new ArrayList<>();
 
-         do{
-             try {
+        do {
+            try {
                 joueurSocket = serverSocket.accept();
                 System.out.println("Un nouveau joueur connecté");
                 compteur--;
                 if (compteur != 0) {
                     System.out.println("Plus que " + compteur + " joueur en attente");
                 }
-                 Thread t = new Thread(new ConnexionJoueur(this));
-                 fileAttente.add(t);
-             } catch (IOException e) {
-                 System.out.println("connexion au joueur impossible");
-             }
+                Thread t = new Thread(new ConnexionJoueur(this));
+                fileAttente.add(t);
+            } catch (IOException e) {
+                System.out.println("connexion au joueur impossible");
+            }
 
 
-        }while (compteur != 0);
+        } while (compteur != 0);
         for (Thread t : fileAttente) {
-            t.start();
+            try {
+                t.start();
+                t.join();
+            } catch (InterruptedException e) {
+                System.out.println("erreur au niveau des attentes join");
+            }
         }
 
-        System.out.println("Tout le monde est là, c'est partie ...");
+        System.out.println("Tout le monde est là, c'est parti ...");
 
     }
 

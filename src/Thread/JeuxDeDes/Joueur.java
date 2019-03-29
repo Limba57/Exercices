@@ -17,9 +17,8 @@ public class Joueur implements Runnable{
 
 
     public void run() {
-         do {
+
             lancer = partie.jouer(this);
-        }while (lancer == 0);
 
     }
 

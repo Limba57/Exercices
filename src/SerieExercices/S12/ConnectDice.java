@@ -11,7 +11,7 @@ public class ConnectDice {
     }
 
     // lancer du dés avec retour de l'info
-    public int lancer (){
+    public synchronized int lancer (String nom){
 
         int nombreAleatoire = 1 + (int)(Math.random() * (nbrDeFaces));
         return nombreAleatoire;

@@ -22,13 +22,11 @@ public class ConnexionJoueur implements Runnable{
         this.serveur = serveur;
         this.socket = this.serveur.getJoueurSocket();
 
-        lancer = this.serveur.getDes().lancer();
-
         try {
             out = new PrintWriter(socket.getOutputStream(), true);
             in = new BufferedReader(new InputStreamReader(this.socket.getInputStream()));
             nom = in.readLine();
-            serveur.getClassement().classement(lancer, nom);
+
         } catch (IOException e) {
             System.out.println("probleme à l'ouverture des flux sur les threads");
         }
@@ -37,9 +35,12 @@ public class ConnexionJoueur implements Runnable{
     @Override
     public void run() {
 
+        lancer = this.serveur.getDes().lancer(nom);
+
+        serveur.getClassement().classement(lancer, nom);
         out.println("ok");
 
-        out.println("--> "+nom+" vous avez fait un jet de : "+lancer+".--> le gagant est "+serveur.getClassement().getGagnant());
+        out.println("--> "+nom+" vous avez fait un jet de : "+lancer+".--> le gagnant est "+serveur.getClassement().getGagnant());
 
     }
 }
