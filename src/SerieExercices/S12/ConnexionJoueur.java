@@ -41,7 +41,7 @@ public class ConnexionJoueur implements Runnable{
         nom = in.readLine();
         serveur.getClassement().classement(lancer, nom);
 
-        out.println(nom+" vous avez fait un jet de : "+lancer+".--> le gagant est "+serveur.getClassement().getGagnant());
+        out.println("--> "+nom+" vous avez fait un jet de : "+lancer+".--> le gagant est "+serveur.getClassement().getGagnant());
 
         } catch (IOException e) {
             System.out.println("prbl ds le run des threads");
