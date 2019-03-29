@@ -27,7 +27,8 @@ public class ConnexionJoueur implements Runnable{
         try {
             out = new PrintWriter(socket.getOutputStream(), true);
             in = new BufferedReader(new InputStreamReader(this.socket.getInputStream()));
-
+            nom = in.readLine();
+            serveur.getClassement().classement(lancer, nom);
         } catch (IOException e) {
             System.out.println("probleme à l'ouverture des flux sur les threads");
         }
@@ -36,17 +37,9 @@ public class ConnexionJoueur implements Runnable{
     @Override
     public void run() {
 
-        try {
         out.println("ok");
-        nom = in.readLine();
-        serveur.getClassement().classement(lancer, nom);
 
         out.println("--> "+nom+" vous avez fait un jet de : "+lancer+".--> le gagant est "+serveur.getClassement().getGagnant());
-
-        } catch (IOException e) {
-            System.out.println("prbl ds le run des threads");
-        }
-
 
     }
 }
