@@ -9,10 +9,7 @@ public class MainServeur {
 
     public static void main(String[] args) throws IOException {
 
-
         ServeurDePartie serveur = new ServeurDePartie(5000);
-
-
 
     }
 }
