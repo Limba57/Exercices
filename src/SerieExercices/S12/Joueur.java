@@ -63,12 +63,12 @@ public class Joueur {
 
             try {
                 message = in.readLine();
-//                String pattern = "(\\G.)(\\w)";
-//                Pattern r = Pattern.compile(pattern);
-//                Matcher m = r.matcher(message);
-//                System.out.println(m.group(0));
-//                System.out.println(m.group(1));
-                System.out.println(message);
+                String regex = "(\\.)";
+                Pattern pattern = Pattern.compile(regex);
+                String[] array = pattern.split(message);
+                System.out.println(array[0]);
+                System.out.println(array[1]);
+                //System.out.println(message);
             } catch (IOException e) {
                 System.out.println("probleme en reception de fin de partie");
             }
