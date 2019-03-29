@@ -13,13 +13,10 @@ import java.util.regex.Pattern;
 public class Joueur {
 
     private String nom;
-    //private Partie partie; voir pour redefinir partie
-    private Thread t; // thread du joueur
     private Socket socket;
     private Scanner sc;
     private BufferedReader in;
     private PrintWriter out;
-    //private
 
     public Joueur( int port){
 
@@ -43,7 +40,7 @@ public class Joueur {
     public void attente() {
 
         String ok;
-        System.out.println("en attente");
+        System.out.println("en attente d'autre joueurs");
 
         try {
             do {
@@ -62,9 +59,7 @@ public class Joueur {
 
     public void pretAJouer() {
 
-        String message ="";
-
-        do {
+        String message ;
 
             try {
                 message = in.readLine();
@@ -78,7 +73,6 @@ public class Joueur {
                 System.out.println("probleme en reception de fin de partie");
             }
 
-        } while (message.equals("fin"));
     }
 
 

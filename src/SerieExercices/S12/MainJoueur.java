@@ -1,12 +1,8 @@
 package SerieExercices.S12;
 
-import java.io.IOException;
-
 public class MainJoueur {
 
-    public static void main(String[] args) throws IOException {
-
-        boolean stop = false;
+    public static void main(String[] args){
 
         Joueur j = new Joueur(5000);
 

@@ -4,14 +4,11 @@ import java.util.HashMap;
 
 public class Classement {
 
-    private int nbreDeJoueur;
     private HashMap<Integer, String> resultat;
     private String gagnant;
-    private int compteur;
 
-    public Classement(int nbreDeJoueur) {
+    public Classement() {
 
-        this.nbreDeJoueur = nbreDeJoueur;
         resultat = new HashMap<>();
 
     }

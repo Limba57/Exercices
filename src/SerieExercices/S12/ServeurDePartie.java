@@ -13,7 +13,7 @@ public class ServeurDePartie {
     private int nbrDeJoueur;
     private Scanner sc;
     private int nbrDeFaces;
-    private Classement classement;
+    private Classement classement;        //sert a stocker et a trier les joueurs en fonction de leur resultat
     private ConnectDice des;
 
     public ServeurDePartie (int port) {
@@ -22,7 +22,7 @@ public class ServeurDePartie {
 
         System.out.println("Combien de joueur pour cette partie ?");
         nbrDeJoueur = sc.nextInt();
-        classement = new Classement(nbrDeJoueur);
+        classement = new Classement();
 
         System.out.println("Avec un dés à combien de faces voulez-vous jouer ?");
         nbrDeFaces = sc.nextInt();
@@ -66,23 +66,10 @@ public class ServeurDePartie {
             t.start();
         }
 
-        System.out.println("Tout le monde est là, on peut commencer");
-
-
-
-        attente();
-    }
-
-    private void attente() {
-
-        boolean infini = true;
-
-        while (infini) {
-
-        }
-
+        System.out.println("Tout le monde est là, c'est partie ...");
 
     }
+
 
 
 

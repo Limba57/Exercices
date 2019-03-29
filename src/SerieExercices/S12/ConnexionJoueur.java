@@ -29,7 +29,7 @@ public class ConnexionJoueur implements Runnable{
             in = new BufferedReader(new InputStreamReader(this.socket.getInputStream()));
 
         } catch (IOException e) {
-            System.out.println("variable nom pas recue");
+            System.out.println("probleme à l'ouverture des flux sur les threads");
         }
     }
 
@@ -44,7 +44,7 @@ public class ConnexionJoueur implements Runnable{
         out.println(nom+" vous avez fait un jet de : "+lancer+" -----> le gagant est "+serveur.getClassement().getGagnant());
 
         } catch (IOException e) {
-            System.out.println("prbl à la reception du nom");
+            System.out.println("prbl ds le run des threads");
         }
 
 
