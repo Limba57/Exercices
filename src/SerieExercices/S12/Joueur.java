@@ -7,6 +7,8 @@ import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.net.Socket;
 import java.util.Scanner;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class Joueur {
 
@@ -60,15 +62,17 @@ public class Joueur {
 
     public void pretAJouer() {
 
-        //System.out.println("Pret a jouer ? pressez une touche !");
-        //sc.nextLine();
         String message ="";
 
         do {
 
             try {
                 message = in.readLine();
-                System.out.println(message);
+                String pattern = "(\\G.)(\\w)";
+                Pattern r = Pattern.compile(pattern);
+                Matcher m = r.matcher(message);
+                System.out.println(m.group(0));
+                System.out.println(m.group(1));
             } catch (IOException e) {
                 System.out.println("probleme en reception de fin de partie");
             }

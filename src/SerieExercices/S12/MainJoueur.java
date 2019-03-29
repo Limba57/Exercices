@@ -10,8 +10,8 @@ public class MainJoueur {
 
         Joueur j = new Joueur(5000);
 
-        do {
-        } while (!stop);
+//        do {
+//        } while (!stop);
         
     }
 }

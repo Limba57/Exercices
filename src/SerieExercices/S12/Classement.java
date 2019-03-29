@@ -7,6 +7,7 @@ public class Classement {
     private int nbreDeJoueur;
     private HashMap<Integer, String> resultat;
     private String gagnant;
+    private int compteur;
 
     public Classement(int nbreDeJoueur) {
 
@@ -15,16 +16,25 @@ public class Classement {
 
     }
 
-    public synchronized void classement(String nom, int lancer) {
+    public synchronized void classement( Integer lancer,String nom) {
 
         resultat.put(lancer, nom);
 
+
         for (Integer s : resultat.keySet()) {
-            gagnant = resultat.get(s);
+
+            if (s >= lancer) {
+                gagnant = resultat.get(s)+" avec un lancer de "+s;
+                lancer = s;
+            }
         }
 
+        notify();
 
     }
 
+    public String getGagnant() {
+        return gagnant;
+    }
 
 }
