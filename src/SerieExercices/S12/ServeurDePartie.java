@@ -15,8 +15,6 @@ public class ServeurDePartie {
     private int nbrDeFaces;
     private Classement classement;
     private ConnectDice des;
-    boolean stop = false;
-
 
     public ServeurDePartie (int port) {
 
@@ -29,11 +27,13 @@ public class ServeurDePartie {
         System.out.println("Avec un dés à combien de faces voulez-vous jouer ?");
         nbrDeFaces = sc.nextInt();
         des = new ConnectDice(nbrDeFaces);
+
         try {
             serverSocket = new ServerSocket(port);
         } catch (IOException e) {
             System.out.println("Erreur de creation du socketServer");
         }
+
         System.out.println("-- SERVEUR OK --");
         System.out.println("-- En attente de "+nbrDeJoueur+" joueurs");
 
@@ -75,7 +75,11 @@ public class ServeurDePartie {
 
     private void attente() {
 
+        boolean infini = true;
 
+        while (infini) {
+
+        }
 
 
     }

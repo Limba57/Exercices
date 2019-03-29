@@ -19,8 +19,11 @@ public class ConnexionJoueur implements Runnable{
 
     public ConnexionJoueur(ServeurDePartie serveur) {
 
-        this.socket = serveur.getJoueurSocket();
         this.serveur = serveur;
+        this.socket = this.serveur.getJoueurSocket();
+
+        lancer = this.serveur.getDes().lancer();
+
         try {
             out = new PrintWriter(socket.getOutputStream(), true);
             in = new BufferedReader(new InputStreamReader(this.socket.getInputStream()));
@@ -38,8 +41,8 @@ public class ConnexionJoueur implements Runnable{
 
         out.println("ok");
         nom = in.readLine();
-        out.println(nom);
-        lancer = serveur.getDes().lancer();
+        //out.println(nom);
+
         out.println(nom+" vous avez fait un jet de : "+lancer);
 
         } catch (IOException e) {
