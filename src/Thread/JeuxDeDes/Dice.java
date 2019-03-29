@@ -16,7 +16,7 @@ public class Dice {
         nbrDeFaces = 6;
     }
 
-    public int lancer (Joueur joueur){
+    public synchronized int lancer (Joueur joueur){
 
         Scanner sc = new Scanner(System.in);
         System.out.println("\n---------------------\n");

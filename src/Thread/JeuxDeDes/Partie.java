@@ -9,6 +9,7 @@ public class Partie {
     Dice dice;
     HashMap<Integer,String> resultas;
     String gagnant;
+    int compteur = 6;
 
     public Partie(){
 
@@ -23,7 +24,7 @@ public class Partie {
     }
 
 
-    public synchronized int jouer (Joueur joueur) {
+    public synchronized void jouer (Joueur joueur) {
 
        int lancer;
 
@@ -33,15 +34,28 @@ public class Partie {
         for (Integer s : resultas.keySet()) {
 
             if(s >= lancer) {
-                gagnant = resultas.get(s);
+                gagnant = resultas.get(s)+" avec "+s;
                 lancer = s;
             }
 
         }
-        System.out.println(resultas);
-        System.out.println("le plus grand score est à : "+gagnant+"\n");
+        while (compteur != 1) {
+            try {
+                compteur--;
+                wait();
+            } catch (InterruptedException e) {
+                System.out.println("erreur ds le wait");
+            }
+        }
         notifyAll();
-        return lancer;
+        if (compteur == 1){
+            System.out.println(gagnant);
+        }
+        //System.out.println(resultas);
+        //System.out.println("le plus grand score est à : "+gagnant+"\n");
+        //notifyAll();
+        //System.out.println("le gagnant est "+gagnant);
+        //return gagnant;
 
     }
 }

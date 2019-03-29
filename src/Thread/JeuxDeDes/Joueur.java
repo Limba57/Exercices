@@ -10,6 +10,8 @@ public class Joueur implements Runnable{
     public Joueur(String nom, Partie partie) {
         this.nom = nom;
         this.partie = partie;
+        //lancer = partie.jouer(this);
+
         t = new Thread(this);
         t.start();
     }
@@ -18,7 +20,7 @@ public class Joueur implements Runnable{
 
     public void run() {
 
-            lancer = partie.jouer(this);
+        partie.jouer(this);
 
     }
 
