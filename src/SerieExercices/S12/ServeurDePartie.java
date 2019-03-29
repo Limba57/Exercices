@@ -22,7 +22,7 @@ public class ServeurDePartie {
 
         System.out.println("Combien de joueur pour cette partie ?");
         nbrDeJoueur = sc.nextInt();
-        classement = new Classement();
+        classement = new Classement(nbrDeJoueur);
 
         System.out.println("Avec un dés à combien de faces voulez-vous jouer ?");
         nbrDeFaces = sc.nextInt();
@@ -60,15 +60,10 @@ public class ServeurDePartie {
                 System.out.println("connexion au joueur impossible");
             }
 
-
         } while (compteur != 0);
+
         for (Thread t : fileAttente) {
-            try {
                 t.start();
-                t.join();
-            } catch (InterruptedException e) {
-                System.out.println("erreur au niveau des attentes join");
-            }
         }
 
         System.out.println("Tout le monde est là, c'est parti ...");
