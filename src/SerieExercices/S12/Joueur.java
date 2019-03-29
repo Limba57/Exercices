@@ -28,9 +28,9 @@ public class Joueur {
         socket = new Socket("127.0.001", port);
         System.out.println("-- "+nom+" CONNEXION OK --");
 
-            out = new PrintWriter(socket.getOutputStream());
+            out = new PrintWriter(socket.getOutputStream(),true);
             in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
-            //out.println(nom);
+            out.println(nom);
         } catch (IOException e) {
             System.out.println("erreur de connexion coté joueur : "+nom);
         }
@@ -53,17 +53,27 @@ public class Joueur {
         } catch (IOException e) {
             System.out.println("erreure pdt l'attente");
         }
-
+        out.println(nom);
         pretAJouer();
 
     }
 
     public void pretAJouer() {
 
-        System.out.println("Pret a jouer ? pressez une touche !");
-        String go = sc.nextLine();
-        out.println(nom);
-        pretAJouer();
+        //System.out.println("Pret a jouer ? pressez une touche !");
+        //sc.nextLine();
+        String message ="";
+
+        do {
+
+            try {
+                message = in.readLine();
+                System.out.println(message);
+            } catch (IOException e) {
+                System.out.println("probleme en reception de fin de partie");
+            }
+
+        } while (message.equals("fin"));
     }
 
 

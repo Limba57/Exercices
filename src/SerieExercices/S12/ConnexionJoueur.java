@@ -24,7 +24,7 @@ public class ConnexionJoueur implements Runnable{
         try {
             out = new PrintWriter(socket.getOutputStream(), true);
             in = new BufferedReader(new InputStreamReader(this.socket.getInputStream()));
-            out.println("connexion ok");
+            //out.println("connexion ok");
 
         } catch (IOException e) {
             System.out.println("variable nom pas recue");
@@ -33,20 +33,19 @@ public class ConnexionJoueur implements Runnable{
 
     @Override
     public void run() {
-        System.out.println("test");
-        //lancer = serveur.getDes().lancer();
-        out.println("c'est partie");
-        out.println("ok");
 
         try {
-            do {
-                nom = in.readLine();
-                System.out.println(nom);
-            } while (nom.isEmpty() == false);
+
+        out.println("ok");
+        nom = in.readLine();
+        out.println(nom);
+        lancer = serveur.getDes().lancer();
+        out.println(nom+" vous avez fait un jet de : "+lancer);
+
         } catch (IOException e) {
             System.out.println("prbl à la reception du nom");
         }
-        System.out.println(nom);
+
 
     }
 }

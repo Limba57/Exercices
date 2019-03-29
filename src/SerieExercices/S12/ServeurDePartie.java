@@ -51,8 +51,9 @@ public class ServeurDePartie {
                 joueurSocket = serverSocket.accept();
                 System.out.println("Un nouveau joueur connecté");
                 compteur--;
-                System.out.println("Plus que " + compteur + " joueur en attente");
-
+                if (compteur != 0) {
+                    System.out.println("Plus que " + compteur + " joueur en attente");
+                }
                  Thread t = new Thread(new ConnexionJoueur(this));
                  fileAttente.add(t);
              } catch (IOException e) {
@@ -68,22 +69,13 @@ public class ServeurDePartie {
         System.out.println("Tout le monde est là, on peut commencer");
 
 
-        do {
-        } while (!stop);
-        //deconnexion();
+
+        attente();
     }
 
-    private void deconnexion() {
+    private void attente() {
 
-        char reponse;
-        Scanner scUn = new Scanner(System.in);
 
-        do{
-            System.out.println("Voulez vous couper le serveur o/n");
-            reponse = scUn.nextLine().charAt(0);
-        }while ( reponse != 'o');
-
-        System.out.println("Salut");
 
 
     }
