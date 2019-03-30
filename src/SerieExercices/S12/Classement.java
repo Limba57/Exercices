@@ -18,8 +18,6 @@ public class Classement {
     public synchronized void classement( Integer lancer,String nom) {
 
         resultat.put(lancer, nom);
-        //int compteur = 0;
-
 
             for (Integer s : resultat.keySet()) {
 
@@ -36,6 +34,7 @@ public class Classement {
                     System.out.println("merde dans les wait du classement");
                 }
             }
+
         notify();
     }
 

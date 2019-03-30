@@ -35,7 +35,7 @@ public class ServeurDePartie {
         }
 
         System.out.println("-- SERVEUR OK --");
-        System.out.println("-- En attente de "+nbrDeJoueur+" joueurs");
+        System.out.println("-- En attente de "+nbrDeJoueur+" joueurs --\n");
 
         attenteDeConnexion();
     }
@@ -52,7 +52,7 @@ public class ServeurDePartie {
                 System.out.println("Un nouveau joueur connecté");
                 compteur--;
                 if (compteur != 0) {
-                    System.out.println("Plus que " + compteur + " joueur en attente");
+                    System.out.println("Plus que " + compteur + " joueur en attente\n");
                 }
                 Thread t = new Thread(new ConnexionJoueur(this));
                 fileAttente.add(t);
