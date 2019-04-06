@@ -25,7 +25,7 @@ public class Grille {
 
     }
 
-    public boolean ajouter(String ox, int position) {
+    public synchronized boolean ajouter(String ox, int position) {
 
         switch (position){
             case 1 :

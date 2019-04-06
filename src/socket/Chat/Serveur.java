@@ -3,12 +3,14 @@ package socket.Chat;
 import java.io.IOException;
 import java.net.ServerSocket;
 import java.net.Socket;
+import java.util.ArrayList;
 
 public class Serveur {
 
     private ServerSocket serverSocket;
     private Socket clientSocket;
     private boolean infini = true;
+    private ArrayList<Socket> diffusion;
 
     public Serveur(int port) throws IOException {
 
@@ -22,6 +24,7 @@ public class Serveur {
 
         while (infini) {
             clientSocket = serverSocket.accept();
+
             System.out.println("Un nouveau client connecté");
             Thread t = new Thread(new ChatClient(clientSocket));
             t.start();

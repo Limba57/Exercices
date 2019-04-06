@@ -19,7 +19,14 @@ public class Joueur implements Runnable{
 
 
     public void run() {
+        /*
+        on aurai pu syncroniser tout l'objet
+        syncronized (partie){
 
+            partie.jouer(this);  --> permet de synchroniser tout l'ojet partie
+
+        }
+         */
         partie.jouer(this);
 
     }

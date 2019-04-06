@@ -18,6 +18,18 @@ public class MainDes {
         Joueur dix = new Joueur("Axel", partie);
         Joueur onze = new Joueur("Ginette", partie);
 
+        /*
+        Thread t1 = new Thread(un);
+        Thread t2 = new Thread(deux);
+
+        t1.join();   ---> ici permet de joindre les deux thread pour permetre l'execution du code qui suit
+
+        .
+        .
+        .
+        .
+
+        */
 
 
     }

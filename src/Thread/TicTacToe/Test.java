@@ -7,6 +7,6 @@ public class Test {
 
         Partie partie = new Partie();
 
-        System.out.println(partie.grille);
+        //System.out.println(partie.grille);
     }
 }
