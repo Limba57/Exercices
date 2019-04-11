@@ -8,7 +8,8 @@ import java.io.PrintWriter;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
-public class SauvegardePerso {
+public class
+SauvegardePerso {
 
     public static void main(String[] args) throws FileNotFoundException {
 
