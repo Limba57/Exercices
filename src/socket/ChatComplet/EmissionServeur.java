@@ -1,24 +1,20 @@
 package socket.ChatComplet;
 
-import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.net.Socket;
 import java.util.Scanner;
 
-public class Emission implements Runnable{
+public class EmissionServeur implements Runnable{
 
     private Socket socket;
-    private Client client;
     private PrintWriter out;
     private Thread t;
     boolean stop;
     private Scanner sc;
 
-    public Emission(Socket socket,Client client) {
+    public EmissionServeur(Socket socket) {
 
-        this.client = client;
-        sc = new Scanner(System.in);
         stop = false;
         this.socket = socket;
         try {
@@ -35,11 +31,10 @@ public class Emission implements Runnable{
 
         do {
 
-            String message = client.getPseudo()+" : "+sc.nextLine();
+            String message = sc.nextLine();
 
             out.println(message);
 
         } while (!stop);
     }
 }
-

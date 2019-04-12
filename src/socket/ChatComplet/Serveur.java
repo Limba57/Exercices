@@ -10,27 +10,44 @@ public class Serveur {
     private ServerSocket serverSocket;
     private Socket socket;
     private boolean infini = true;
-    private ArrayList<Socket> diffusion;
+    private ArrayList<PartageDeConnexion> diffusion;
 
-    public Serveur(int port) throws IOException{
+    public Serveur(int port) {
 
         System.out.println("----- LANCEMENT DU SERVEUR -----");
-
-        serverSocket = new ServerSocket(port);
-
+        try {
+            serverSocket = new ServerSocket(port);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        diffusion = new ArrayList<>();
         connexion();
     }
 
-    public void connexion() throws IOException{
+    public void connexion() {
 
         while (infini) {
 
-            socket = serverSocket.accept();
+            try {
+                socket = serverSocket.accept();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
 
             System.out.println("----- NOUVEAU CLIENT CONNECTE -----");
-            Thread t = new Thread(new PartageDeConnexion(socket));
+            PartageDeConnexion p = new PartageDeConnexion(socket, this);
+            diffusion.add(p);
+            Thread t = new Thread(p);
+
             t.start();
 
+        }
+    }
+
+    public void emissionTotal(String message) {
+
+        for (PartageDeConnexion p : diffusion) {
+            p.emissionClient(message);
         }
     }
 }

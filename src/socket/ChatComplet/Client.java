@@ -20,7 +20,16 @@ public class Client {
         }
         System.out.println("----- CONNEXION AU SERVEUR OK -----");
 
-        emission = new Emission(socket);
+        emission = new Emission(socket,this);
         reception = new Reception(socket);
     }
+
+    public String getPseudo() {
+        return pseudo;
+    }
+
+    public Socket getSocket() {
+        return socket;
+    }
+
 }
