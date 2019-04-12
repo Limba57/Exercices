@@ -7,13 +7,13 @@ public class MainClient {
     public static void main(String[] args) {
 
         Scanner sc = new Scanner(System.in);
-        String pseudo;
+        String pseudo ;
 
         System.out.println("Entrez votre pseudo : ");
 
         pseudo = sc.nextLine();
 
-        Client client = new Client(pseudo, 5000);
+        new Client(pseudo, 5000);
 
     }
 }
