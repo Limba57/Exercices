@@ -1,4 +1,4 @@
-package socket.ChatComplet;
+package socket.ChatComplet.Serveur;
 
 import java.io.IOException;
 import java.net.ServerSocket;
@@ -44,7 +44,7 @@ public class Serveur {
         }
     }
 
-    public void emissionTotal(String message) {
+    public synchronized void emissionTotal(String message) {
 
         for (PartageDeConnexion p : diffusion) {
             p.emissionClient(message);

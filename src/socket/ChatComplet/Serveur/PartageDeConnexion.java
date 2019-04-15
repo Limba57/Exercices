@@ -1,4 +1,4 @@
-package socket.ChatComplet;
+package socket.ChatComplet.Serveur;
 
 import java.io.IOException;
 import java.io.PrintWriter;

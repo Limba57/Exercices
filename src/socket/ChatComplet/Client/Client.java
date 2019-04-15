@@ -1,4 +1,4 @@
-package socket.ChatComplet;
+package socket.ChatComplet.Client;
 
 import java.io.IOException;
 import java.net.Socket;

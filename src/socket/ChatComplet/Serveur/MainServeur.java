@@ -1,4 +1,4 @@
-package socket.ChatComplet;
+package socket.ChatComplet.Serveur;
 
 public class MainServeur {
 
